@@ -7,7 +7,7 @@ class NflPickem extends React.Component {
     state = {
         name: "",
         logos: [null, null, null, null, null, null, null],
-        games: []
+        games: [],
     }
 
     componentDidMount () {
@@ -49,16 +49,11 @@ class NflPickem extends React.Component {
         } else {
             alert("You have not made enough picks. Please complete your picks and submit again.")
         }
-        // let startIndex = console.log("start:",(logos[1].match("nfl").index))
-        // let endIndex = console.log("end:", (logos[1].match("-team").index))
-        // let team = logos[1]
-        // let splitTeam = team.split()
-        // let teamName = splitTeam[0].slice(startIndex, endIndex)
-        // console.log(teamName)
     }
 
     render () {
         // take all the games and slice to get the first 7
+        console.log(this.state.games)
         let gamesArray = this.state.games.slice(0,7)
         // map over the 7 games in the array and make a pickem game component for each one
         let gamesToDisplay = gamesArray.map(game => <PickemGame key={game.id} id={game.id - 1} makeAPick={this.clickHandler} homeLogo={"http://loodibee.com/wp-content/uploads/nfl-houston-texans-team-logo-2-768x768.png"} awayLogo={"http://loodibee.com/wp-content/uploads/nfl-houston-texans-team-logo-2-768x768.png"} homeName={game.home_team} awayName={game.away_team} time={game.time}/>)
