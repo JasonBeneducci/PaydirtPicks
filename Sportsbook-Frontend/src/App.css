@@ -63,11 +63,11 @@
   display: flex;
   color: white;
   margin-top: 2%;
-  justify-content: center;
+  align-items: center;
   margin-bottom: 2%;
   border-style: solid;
   border-width: 5px;
-  border-color: white;
+  border-color: yellow;
   border-radius: 10px;
   font-size: 150%;
   animation: mymove 3s infinite;
@@ -76,19 +76,19 @@
 }
 
 @keyframes mymove {
-  10% {border-color: red; border-opacity: .1;}
-  20% {border-color: red; border-opacity: .2;}
-  30% {border-color: red; border-opacity: .3;}
-  40% {border-color: red; border-opacity: .4;}
-  50% {border-color: red; border-opacity: .5;}
-  60% {border-color: red; border-opacity: .6;}
+  10% {border-color: yellow; border-opacity: .1;}
+  20% {border-color: yellow; border-opacity: .2;}
+  30% {border-color: yellow; border-opacity: .3;}
+  40% {border-color: orange; border-opacity: .4;}
+  50% {border-color: orange; border-opacity: .5;}
+  60% {border-color: orange; border-opacity: .6;}
   70% {border-color: red; border-opacity: .7;}
   80% {border-color: red; border-opacity: .8;}
   90% {border-color: red; border-opacity: .9;}
 }
 
 .jackpot-value {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   background-color: navy;
   width: 100%;
   justify-content: center;
@@ -108,7 +108,7 @@
   justify-self: center;
   align-items: center;
   width: 50%;
-  background-color: gray;
+  /* background-color: white; */
   border-style: solid;
   border-color: red;
   margin: 5%;
@@ -135,7 +135,7 @@
   width: 30%;
   margin: 2%;
   border-radius: 5px;
-  border-style:solid;
+  border-style: solid;
   border-color: red;
 }
 
@@ -148,7 +148,8 @@
 .home-team-logo-selected {
   height: auto;
   width: 30%;
-  border-radius: 5px;
+  border-radius: 10px;
+  border-width: 1vw;
   border-style: solid;
   border-color: red;
   margin: 2%;
@@ -163,7 +164,8 @@
 .away-team-logo-selected {
   height: auto;
   width: 30%;
-  border-radius: 5px;
+  border-radius: 10px;
+  border-width: 1vw;
   border-style:solid;
   border-color: red;
   margin: 2%;
@@ -188,7 +190,8 @@
   margin-bottom:2%;
   flex-basis: 100%;
   display: flex;
-  font-size: 2vh;
+  font-size: 3vh;
+  font-weight: bolder;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -205,7 +208,7 @@
 
 .nfl-games-logo {
   height: auto;
-  width: 20vw;
+  width: 5vw;
   align-self: center;
 }
 
@@ -236,8 +239,7 @@
   flex-wrap: wrap;
   align-self: center; 
   justify-content: center;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 2%;
   border-style: double;
   border-color: red;
   width: 100%; 
@@ -249,12 +251,23 @@
   flex-direction: row;
   flex-wrap: nowrap;
   flex-basis: 50%;
+  margin: 1%;
   justify-content: center;
 }
 
 .picked-team-logo {
   height: 10vh;
   width: auto;
+}
+
+.unpicked-team-logo {
+  background-color: white;
+  color: black;
+  font-size: 6vh;
+  border-radius: 10px;
+  height: 8vh;
+  width: 8vh;
+  margin: 1%;
 }
 
 .submit-picks-button {
