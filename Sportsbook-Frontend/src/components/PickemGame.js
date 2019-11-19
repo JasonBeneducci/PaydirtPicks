@@ -11,9 +11,13 @@ class PickemGame extends React.Component {
     
 
     clickHandler = (event, id) => {
+        // Call on handleDuplicates to run a conditional toggle the state of which logo is 'selected'
         this.handleDuplicates(event)
-        this.props.makeAPick(event.target.src, id)
+
+        // Call on makeAPick from props to add a given pick to the TeamInProgress sticky bar
+        this.props.makeAPick(event.target.src, this.props.id)
     
+
         if (event.target.id === "homeTeam") {
             this.setState({
                 homeSelected: !this.state.homeSelected
@@ -26,9 +30,6 @@ class PickemGame extends React.Component {
 
 
     }
-
-
-
 
     handleDuplicates = (event) => {
         
@@ -49,7 +50,7 @@ class PickemGame extends React.Component {
             <div className="game-container">
                 
                 <div>
-                    <BetTitle homeName={this.props.homeName} awayName={this.props.awayName} />
+                    <BetTitle homeName={this.props.homeName} awayName={this.props.awayName} time={this.props.time} />
                 </div>
 
                 <div className="matchup-card">
@@ -62,11 +63,15 @@ class PickemGame extends React.Component {
     }
 }
 
+// const msp = (state) => {
+//     return {
+
+//     }
+// }
+
 // const mdp = (dispatch) => {
 //     return {
-//         increaseJackpot: () => {
-//             dispatch({type: "INCREASE_JACKPOT"})
-//         }
+
 //     }
 // }
 

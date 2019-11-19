@@ -1,8 +1,8 @@
 import React from 'react'
 
-const UnpickedGame = () => {
+const UnpickedGame = (props) => {
     return (
-        <div className='unpicked-team-logo'>?</div>
+        <div id={props.id} className='unpicked-team-logo'>?</div>
     )
 }
 

@@ -6,7 +6,16 @@ import {connect} from 'react-redux'
 class NflPickem extends React.Component {
     state = {
         name: "",
-        logos: []
+        logos: [null, null, null, null, null, null, null],
+        games: []
+    }
+
+    componentDidMount () {
+        fetch('http://localhost:3000/api/v1/games')
+        .then(resp => resp.json())
+        .then(data => this.setState({
+            games: data
+        }))
     }
 
     changeHandler = (event) => {
@@ -15,19 +24,14 @@ class NflPickem extends React.Component {
         })
     }
 
-    clickHandler = (logo, gameId) => {
-        // console.log(gameId)
-
-        if (this.state.logos.length <= 7 && !this.state.logos.includes(logo)) {
-            this.setState({
-                logos: [...this.state.logos, logo]
-            })
-        } else if (this.state.logos.includes(logo)) {
-            alert("You have already made that selection! If you would like to change your selection. Remove your previous pick and add a new one.")
-        } else if (this.state.logos.length === 7) {
-            alert("You have already picked all of the games!")
-        }
-
+    clickHandler = (logo, id) => {
+        console.log("logo:", logo)
+        console.log("id:", id)
+        let newLogos = [...this.state.logos]
+        newLogos[id] = logo
+        this.setState({
+            logos: newLogos
+        })
     }
 
     removeATeam = (image) => {
@@ -45,8 +49,6 @@ class NflPickem extends React.Component {
         } else {
             alert("You have not made enough picks. Please complete your picks and submit again.")
         }
-
-        
         // let startIndex = console.log("start:",(logos[1].match("nfl").index))
         // let endIndex = console.log("end:", (logos[1].match("-team").index))
         // let team = logos[1]
@@ -56,28 +58,23 @@ class NflPickem extends React.Component {
     }
 
     render () {
-        console.log("PICKEM PROPS", this.props)
+        // take all the games and slice to get the first 7
+        let gamesArray = this.state.games.slice(0,7)
+        // map over the 7 games in the array and make a pickem game component for each one
+        let gamesToDisplay = gamesArray.map(game => <PickemGame key={game.id} id={game.id - 1} makeAPick={this.clickHandler} homeLogo={"http://loodibee.com/wp-content/uploads/nfl-houston-texans-team-logo-2-768x768.png"} awayLogo={"http://loodibee.com/wp-content/uploads/nfl-houston-texans-team-logo-2-768x768.png"} homeName={game.home_team} awayName={game.away_team} time={game.time}/>)
+        
         return (
             <>
                <img className="nfl-games-logo" src="https://www.stickpng.com/assets/images/5895deb9cba9841eabab6099.png" alt="" />
                
                <div className="pickem-container">
-                    
                     <TeamInProgress clickHandler={this.removeATeam} logos={this.state.logos} submitHandler={this.submitHandler} />
-                    
-                    <PickemGame id="1" makeAPick={this.clickHandler} homeLogo={"http://loodibee.com/wp-content/uploads/nfl-houston-texans-team-logo-2-768x768.png"} awayLogo={"http://loodibee.com/wp-content/uploads/nfl-arizona-cardinals-team-logo-2-768x768.png"} homeName={"Houston Texans"} awayName={"Arizona Cardinals"} />
-                    <PickemGame id="2" makeAPick={this.clickHandler} homeLogo={"http://loodibee.com/wp-content/uploads/nfl-indianapolis-colts-team-logo-2-768x768.png"} awayLogo={"http://loodibee.com/wp-content/uploads/nfl-jacksonville-jaguars-team-logo-2-768x768.png"} homeName={"Indianapolis Colts"} awayName={"Jacksonville Jaguars"} />
-                    <PickemGame id="3" makeAPick={this.clickHandler} homeLogo={"http://loodibee.com/wp-content/uploads/nfl-kansas-city-chiefs-team-logo-2-768x768.png"} awayLogo={"http://loodibee.com/wp-content/uploads/nfl-green-bay-packers-team-logo-2-768x768.png"} homeName={"Kansas City Chiefs"} awayName={"Green Bay Packers"}/>
-                    <PickemGame id="4" makeAPick={this.clickHandler} homeLogo={"http://loodibee.com/wp-content/uploads/nfl-atlanta-falcons-team-logo-2-768x768.png"} awayLogo={"http://loodibee.com/wp-content/uploads/nfl-baltimore-ravens-team-logo-2-768x768.png"} homeName={"Atlanta Falcons"} awayName={"Baltimore Ravens"}/>
-                    <PickemGame id="5" makeAPick={this.clickHandler} homeLogo={"http://loodibee.com/wp-content/uploads/nfl-buffalo-bills-team-logo-2-768x768.png"} awayLogo={"http://loodibee.com/wp-content/uploads/nfl-chicago-bears-team-logo-2-768x768.png"} homeName={"Buffalo Bills"} awayName={"Chicago Bears"}/>
-               
+                    {gamesToDisplay}
                </div>
                     
                 <form>
-                    
                     <input type="text" placeholder="Type Your Name" value={this.state.name} onChange={(event) => this.changeHandler(event)} />
                     <input type="submit"/>
-                
                 </form>
             </>
     )
@@ -90,6 +87,6 @@ const mdp = (dispatch) => {
     }
 }
 
-export default connect(null,mdp) (NflPickem)
+export default connect(null, mdp) (NflPickem)
 
 // export default NflPickem
