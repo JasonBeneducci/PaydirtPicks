@@ -9,6 +9,9 @@
 
 .top-logo {
   background-color: navy;
+  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/AmFBfield.svg/1200px-AmFBfield.svg.png");
+  background-repeat: no-repeat;
+  background-size: cover; */
   color: red;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
@@ -30,13 +33,23 @@
 
 .navbar-element {
   flex-basis: 30%;
-  border-radius: 8%;
+  /* padding: 1%; */
   font-weight: bolder;
+  font-size: 3vh;
+  border-style: solid;
+  border-width: .25vw;
+  border-radius: 10px;
+  border-color: transparent;
 }
 
 .navbar-element:hover {
-  transform: scale(1.5);
-  background-color: greenyellow;
+  /* transform: scale(1.5); */
+  background-color: red;
+  /* padding: 1%; */
+  border-style: solid;
+  border-width: .25vw;
+  border-radius: 10px;
+  border-color: white;
 }
 
 
@@ -141,13 +154,13 @@
 
 .home-team-logo {
   height: auto;
-  width: 30%;
+  width: 40%;
   margin: 2%;
 }
 
 .home-team-logo-selected {
   height: auto;
-  width: 30%;
+  width: 40%;
   border-radius: 10px;
   border-width: 1vw;
   border-style: solid;
@@ -157,13 +170,13 @@
 
 .away-team-logo {
   height: auto;
-  width: 30%;
+  width: 40%;
   margin: 2%;
 }
 
 .away-team-logo-selected {
   height: auto;
-  width: 30%;
+  width: 40%;
   border-radius: 10px;
   border-width: 1vw;
   border-style:solid;
@@ -287,4 +300,46 @@
   opacity: .8;
   background-color: lime;
   border-radius: 10px; 
+}
+
+.leaderboard-table {
+  margin: 2%;
+  background-color: white;
+  border-color: red;
+  border-width: .25vw;
+  border-style: solid;
+  border-radius: 7px;
+}
+
+.leaderboard-header {
+  color: blue;
+  font-size: 3vh;
+  font-weight: bolder;
+  margin-bottom: 2%;
+}
+
+.leaderboard-entry-winner {
+  background-color: lime;
+  color:green;
+  font-weight: bolder;
+}
+
+.leaderboard-entry {
+  background-color: white;
+  color:black;
+  font-weight: bolder;
+  color: red;
+}
+
+.about-title {
+  color: blue;
+  font-size: 4vh;
+  font-weight:bolder;
+  margin: 1%;
+}
+
+.about-text {
+  font-size: 2vh;
+  margin-left: 10%;
+  margin-right: 10%;
 }

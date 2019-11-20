@@ -9,7 +9,7 @@ const BetTitle = (props) => {
     return (
         <>
             <div className="pickem-game-info">
-                {props.homeName} vs {props.awayName} 
+                {props.awayName} at {props.homeName}
             <div className="break"></div>
                 {gameMonth + "/" + gameDay + "/" + gameYear}
             <div className="break"></div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import BetTitle from './BetTitle'
+import NflTeamInfo from './NflTeamInfo'
 // import {connect} from 'react-redux'
 
 class PickemGame extends React.Component {
@@ -46,6 +47,8 @@ class PickemGame extends React.Component {
     }
 
     render() {
+        // console.log("NFL TEAMS", NflTeamInfo[this.props.homeLogo]["img_path"])
+        // use NflTeamInfo Game hash to dynamically access values on the keys by team_abbreviation
         return (
             <div className="game-container">
                 
@@ -54,8 +57,8 @@ class PickemGame extends React.Component {
                 </div>
 
                 <div className="matchup-card">
-                    <img id="homeTeam" onClick={(event) => this.clickHandler(event, this.props.id)} alt="" src={this.props.homeLogo} className={this.state.homeSelected ? "home-team-logo-selected" : "home-team-logo"}></img>
-                    <img id="awayTeam" onClick={(event) => this.clickHandler(event, this.props.id)} alt="" src={this.props.awayLogo} className={this.state.awaySelected ? "away-team-logo-selected" : "away-team-logo"}></img>
+                    <img id="awayTeam" onClick={(event) => this.clickHandler(event, this.props.id)} alt="" src={NflTeamInfo[this.props.awayLogo]["img_path"]} className={this.state.awaySelected ? "away-team-logo-selected" : "away-team-logo"}></img>
+                    <img id="homeTeam" onClick={(event) => this.clickHandler(event, this.props.id)} alt="" src={NflTeamInfo[this.props.homeLogo]["img_path"]} className={this.state.homeSelected ? "home-team-logo-selected" : "home-team-logo"}></img>
                 </div>
 
             </div>

@@ -1,8 +1,9 @@
 import React from 'react'
+import LeaderboardsContainer from '../containers/LeaderboardsContainer'
 
 const Leaderboards = () => {
     return (
-        <h1>I am the leaderboards page</h1>
+        <LeaderboardsContainer />
     )
 }
 

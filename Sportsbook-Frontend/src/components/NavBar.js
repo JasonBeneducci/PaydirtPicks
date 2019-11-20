@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import NflPickem from './NflPickem'
 import Leaderboards from './Leaderboards'
-import History from './History'
+import About from './About'
 import AccountBalance from './AccountBalance'
 import TopLogo from './TopLogo'
 
@@ -17,35 +17,34 @@ const NavBar = () => {
     <TopLogo />
     <Router>
         <div className="navbar">
-            <Link to='/nflpickem'>
+            <Link to='/nflpickem' style={{ textDecoration: 'none', color: 'white'}}>
                 <div className="navbar-element">NFL Pickem</div>
             </Link>
-            <Link to='/leaderboards'>
+            <Link to='/leaderboards' style={{ textDecoration: 'none', color: 'white' }}>
                 <div className="navbar-element">Leaderboards</div>
             </Link>
-            <Link to='/history'>
-                <div className="navbar-element">History</div>
+            <Link to='/about' style={{ textDecoration: 'none', color: 'white' }}>
+                <div className="navbar-element">About</div>
             </Link>
-            <Link to='/balance' className="navbar-balance-positive">
-                <div>[LoggedinUser's] Balance: $100</div>
+            <Link to='/balance' style={{ textDecoration: 'none', color: 'lime' }}>
+                <div className="navbar-balance-positive">[LoggedinUser's] Balance: $100</div>
             {/* Write a conditional in here to check if the users balance is greater than 0 it should be className="navbar-balance-positive" */}
             </Link>
         </div>
-                {/* <Jackpot /> */}
-                <Switch>
-                    <Route path="/nflpickem">
-                        <NflPickem />
-                    </Route>
-                    <Route path="/leaderboards">
-                        <Leaderboards/>
-                    </Route>
-                    <Route path="/history">
-                        <History />
-                    </Route>
-                    <Route path="/balance">
-                        <AccountBalance/>
-                    </Route>
-                </Switch>
+            <Switch>
+                <Route path="/nflpickem">
+                    <NflPickem />
+                </Route>
+                <Route path="/leaderboards">
+                    <Leaderboards/>
+                </Route>
+                <Route path="/about">
+                    <About />
+                </Route>
+                <Route path="/balance">
+                    <AccountBalance/>
+                </Route>
+            </Switch>
     </Router>
     </>
     )
