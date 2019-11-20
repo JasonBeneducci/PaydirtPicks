@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191119215431) do
+ActiveRecord::Schema.define(version: 20191120185048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 20191119215431) do
     t.string "away_team_abbr"
     t.string "time"
     t.string "status"
+  end
+
+  create_table "slates", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "team1"
+    t.string "team2"
+    t.string "team3"
+    t.string "team4"
+    t.string "team5"
+    t.string "team6"
+    t.string "team7"
   end
 
 end

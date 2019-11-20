@@ -20,6 +20,10 @@ class Api::V1::GamesController < ApplicationController
         request["x-rapidapi-host"] = 'therundown-therundown-v1.p.rapidapi.com'
         request["x-rapidapi-key"] = '47389e381dmshf70815e5124e93dp185965jsn2cda24ebc4cb'
 
+        
+        # request["x-rapidapi-key"] = Rails.application.credentials.dig(:API_KEY)
+        # puts Rails.application.credentials.dig(:API_KEY)
+
         response = http.request(request)
         parsedGames = JSON[response.read_body]
         parsedGames["events"].each do |event|

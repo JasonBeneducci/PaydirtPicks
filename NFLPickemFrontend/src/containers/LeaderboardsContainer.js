@@ -10,8 +10,13 @@ class LeaderboardsContainer extends React.Component {
             { username: "Jessica", earnings: 550, wins: 9, winner: true },
             { username: "Bonnie", earnings: 0, wins: 6 }
         ]
-
     }
+
+    // componentDidMount() {
+    //     fetch("http://localhost:3000/api/v1/slates")
+    //         .then(resp => resp.json())
+    //         .then(data => console.log(data))
+    // }
 
     render () {
         let winningPlayers = this.state.players.filter(player => player.winner)

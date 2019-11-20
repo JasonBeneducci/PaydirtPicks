@@ -1,0 +1,3 @@
+class Slate < ApplicationRecord
+    
+end

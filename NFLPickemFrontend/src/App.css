@@ -9,9 +9,6 @@
 
 .top-logo {
   background-color: navy;
-  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/AmFBfield.svg/1200px-AmFBfield.svg.png");
-  background-repeat: no-repeat;
-  background-size: cover; */
   color: red;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
@@ -72,7 +69,7 @@
 }
 
 .jackpot-container {
-  flex-basis: 20%;
+  flex-basis: 10%;
   display: flex;
   color: white;
   margin-top: 2%;
@@ -249,7 +246,7 @@
   top: 0;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-self: center; 
   justify-content: center;
   margin: 2%;
@@ -285,15 +282,24 @@
 
 .submit-picks-button {
   align-self: center;
-  flex-basis: 18%;
-  margin-left: 2%;
+  flex-basis: 30%;
+  margin: 2%;
   font-size: 1vh;
   color:white;
   font-weight: bolder;
   background-color: red;
-  height: 4vh;
-  width: 20%;
+  height: 3vh;
+  width: 50%;
   border-radius: 10px;
+}
+
+.name-input {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: red;
+  font-size: 2vh;
+  text-align: center;
+  margin-top: 8%;
 }
 
 .submit-picks-button:hover {

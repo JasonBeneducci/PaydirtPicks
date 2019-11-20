@@ -7,6 +7,16 @@ import {connect} from 'react-redux'
 
 class TeamInProgress extends React.Component {
 
+    state = {
+        name:""
+    }
+
+    changeHandler = (event) => {
+        this.setState({
+            name: event.target.value
+        })
+    }
+
     render () {
         let logosArray = this.props.logos.map(logo => !logo ? <UnpickedGame key={Math.random()} /> : <PickedTeamLogo key={logo} clickHandler={this.props.clickHandler} logo={logo}/>)
         return (
@@ -15,7 +25,10 @@ class TeamInProgress extends React.Component {
                 <Jackpot value={this.props.jackpot}/>
                 <div className="logos-array">
                     {logosArray}
-                    <button className="submit-picks-button" onClick={(event)=> this.props.submitHandler(event)}>SUBMIT PICKS</button>
+                    <form onSubmit={(event) => this.props.submitHandler(event)}>
+                        <input className="name-input" onChange={this.changeHandler} placeholder="Type Your Name" type="text" name="name" value={this.state.name}></input>
+                        <input type="submit" className="submit-picks-button"></input>
+                    </form>
                 </div>
                 <Jackpot value={this.props.jackpot} />
             </div>

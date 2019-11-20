@@ -6,10 +6,10 @@ import {
     Link
 } from "react-router-dom";
 import NflPickem from './NflPickem'
-import Leaderboards from './Leaderboards'
 import About from './About'
 import AccountBalance from './AccountBalance'
 import TopLogo from './TopLogo'
+import LeaderboardsContainer from '../containers/LeaderboardsContainer';
 
 const NavBar = () => {
     return (
@@ -36,7 +36,7 @@ const NavBar = () => {
                     <NflPickem />
                 </Route>
                 <Route path="/leaderboards">
-                    <Leaderboards/>
+                    <LeaderboardsContainer/>
                 </Route>
                 <Route path="/about">
                     <About />

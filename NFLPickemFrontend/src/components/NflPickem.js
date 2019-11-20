@@ -7,6 +7,7 @@ class NflPickem extends React.Component {
     state = {
         name: "",
         logos: [null, null, null, null, null, null, null],
+        teamNames: [null, null, null, null, null, null, null],
         games: [],
     }
 
@@ -26,9 +27,12 @@ class NflPickem extends React.Component {
 
     clickHandler = (logo, id) => {
         let newLogos = [...this.state.logos]
+        let newTeams = [...this.state.teamNames]
         newLogos[id] = logo
+        newTeams[id] = logo.split('').slice(35,38).join('')
         this.setState({
-            logos: newLogos
+            logos: newLogos,
+            teamNames: newTeams
         })
     }
 
@@ -39,13 +43,26 @@ class NflPickem extends React.Component {
         })
     }
 
-    submitHandler = () => {
+    submitHandler = (event) => {
+        event.preventDefault()
+        let data = event.target.name.value
         this.props.incrementJackpot()
         // use .filter() to return an array of null picks left
         let checkedArray = this.state.logos.filter(logo => logo === null)
         // see if that array has any elements
         if(checkedArray.length === 0) {
-            // if no elements that means no nulls so submit picks
+            // if no elements that means no nulls so submit picks to Rails backend
+            fetch('http://localhost:3000/api/v1/slates/new', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "accepts": "application/json"
+                },
+                body: JSON.stringify({
+                    username: data,
+                    teams: this.state.teamNames
+                })
+            })
             alert("Your picks have been successfully submitted")
         } else {
             // otherwise prompt user to make more picks
