@@ -1,6 +1,6 @@
 import React from 'react'
-import BetTitle from './BetTitle'
-import NflTeamInfo from './NflTeamInfo'
+import BetTitle from '../components/BetTitle'
+import NflTeamInfo from '../components/NflTeamInfo'
 // import {connect} from 'react-redux'
 
 class PickemGame extends React.Component {

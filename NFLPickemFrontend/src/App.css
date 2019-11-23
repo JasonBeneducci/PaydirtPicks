@@ -69,7 +69,7 @@
 }
 
 .jackpot-container {
-  flex-basis: 10%;
+  flex-basis: 20%;
   display: flex;
   color: white;
   margin-top: 2%;
@@ -122,7 +122,7 @@
   border-style: solid;
   border-color: red;
   margin: 5%;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .game-item-moneyline {
@@ -155,6 +155,10 @@
   margin: 2%;
 }
 
+.home-team-logo:hover {
+  transform: scale(1.5)
+}
+
 .home-team-logo-selected {
   height: auto;
   width: 40%;
@@ -169,6 +173,10 @@
   height: auto;
   width: 40%;
   margin: 2%;
+}
+
+.away-team-logo:hover {
+  transform: scale(1.2)
 }
 
 .away-team-logo-selected {
@@ -308,33 +316,80 @@
   border-radius: 10px; 
 }
 
-.leaderboard-table {
-  margin: 2%;
-  background-color: white;
-  border-color: red;
-  border-width: .25vw;
-  border-style: solid;
-  border-radius: 7px;
+.leaderboards-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
-.leaderboard-header {
-  color: blue;
-  font-size: 3vh;
+.leaderboards-slate {
+  opacity: 1;
+  margin-top: .2vh;
+  background-color: navy;
+  border-style: solid;
+  border-color: red;
+  border-width: .25vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 3.5vh;
   font-weight: bolder;
+  color: red;
+  justify-content: center;
+}
+
+.leaderboards-slate:hover {
+  opacity: .9;
+  margin-top: .2vh;
+  background-color: navy;
+  border-style: double;
+  border-color: red;
+  border-width: .2vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 3.5vh;
+  font-weight: bolder;
+  color: red;
+  justify-content: center;
+}
+
+.leaderboards-slate-pick {
+  margin:1%;
+  height: 8vh;
+  width: auto;
+}
+
+.leaderboards-player-name {
+  width: 40%;
+  margin-top: 2%;
   margin-bottom: 2%;
 }
 
-.leaderboard-entry-winner {
-  background-color: lime;
-  color:green;
+.leaderboards-title {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: left;
+  margin-left: 17%;
+  font-size: 5vh;
+  color: blue;
   font-weight: bolder;
 }
 
-.leaderboard-entry {
-  background-color: white;
-  color:black;
-  font-weight: bolder;
-  color: red;
+.leaderboards-search {
+  justify-items: center;
+  width: 50%;
+  margin:1%;
+  height:3vh;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: red;
+  color:blue;
+  font-weight:bolder;
+  background-color: lightgray;
+  font-size: 3vh;
+  justify-content: center;
 }
 
 .about-title {

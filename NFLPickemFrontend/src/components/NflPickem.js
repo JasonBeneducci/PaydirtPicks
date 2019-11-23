@@ -1,6 +1,6 @@
 import React from 'react'
-import PickemGame from './PickemGame'
-import TeamInProgress from './TeamInProgress'
+import PickemGame from '../containers/PickemGame'
+import TeamInProgress from '../containers/TeamInProgress'
 import {connect} from 'react-redux'
 
 class NflPickem extends React.Component {
@@ -28,12 +28,16 @@ class NflPickem extends React.Component {
     clickHandler = (logo, id) => {
         let newLogos = [...this.state.logos]
         let newTeams = [...this.state.teamNames]
+        
         newLogos[id] = logo
-        newTeams[id] = logo.split('').slice(35,38).join('')
+        let string = logo.split('').slice(35, 38).join('')
+        let abbreviation = string.split('.').join('')
+        newTeams[id] = abbreviation
         this.setState({
             logos: newLogos,
             teamNames: newTeams
         })
+        console.log(this.state)
     }
 
     removeATeam = (image) => {
@@ -46,12 +50,11 @@ class NflPickem extends React.Component {
     submitHandler = (event) => {
         event.preventDefault()
         let data = event.target.name.value
-        this.props.incrementJackpot()
         // use .filter() to return an array of null picks left
         let checkedArray = this.state.logos.filter(logo => logo === null)
         // see if that array has any elements
         if(checkedArray.length === 0) {
-            // if no elements that means no nulls so submit picks to Rails backend
+            // if no elements that means no nulls so submit picks to Rails backend and increment Jackpot
             fetch('http://localhost:3000/api/v1/slates/new', {
                 method: "POST",
                 headers: {
@@ -64,6 +67,7 @@ class NflPickem extends React.Component {
                 })
             })
             alert("Your picks have been successfully submitted")
+            this.props.incrementJackpot()
         } else {
             // otherwise prompt user to make more picks
             alert("You have not made enough picks. Please complete your picks and submit again.")
@@ -90,8 +94,15 @@ class NflPickem extends React.Component {
 
 const mdp = (dispatch) => {
     return {
-        incrementJackpot: () => dispatch({ type: 'INCREASE_JACKPOT' })
+        incrementJackpot: () => dispatch({ type: 'INCREASE_JACKPOT' }),
     }
 }
 
-export default connect(null, mdp) (NflPickem)
+const msp = (state) => {
+    return {
+        jackpot: state.jackpot,
+    }
+}
+
+export default connect(msp, mdp) (NflPickem)
+

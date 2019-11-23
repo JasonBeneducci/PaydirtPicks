@@ -124,7 +124,7 @@ const NflTeamInfo = {
         background_color: 'rgb(12,35,64)'
     },
     "WSH": {
-        img_path: require('../images/NFLlogos/WAS.png'),
+        img_path: require('../images/NFLlogos/WSH.png'),
         background_color: 'rgb(63,16,16)'
     },
 }
