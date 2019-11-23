@@ -26,6 +26,9 @@ class Api::V1::GamesController < ApplicationController
 
         response = http.request(request)
         parsedGames = JSON[response.read_body]
+
+        Game.all.destroy_all
+        ActiveRecord::Base.connection.reset_pk_sequence!('games')
         parsedGames["events"].each do |event|
             create_games(event)
         end
@@ -33,7 +36,7 @@ class Api::V1::GamesController < ApplicationController
 
     def create_games(event)
         Game.create!(
-            time: event["event_date"],
+            time: event["score"]["event_status_detail"],
             status: event["score"]["event_status"],
             home_team_abbr: event["teams_normalized"][0]["abbreviation"],
             away_team_abbr: event["teams_normalized"][1]["abbreviation"],

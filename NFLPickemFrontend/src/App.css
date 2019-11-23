@@ -156,7 +156,7 @@
 }
 
 .home-team-logo:hover {
-  transform: scale(1.5)
+  transform: scale(1.2)
 }
 
 .home-team-logo-selected {
@@ -205,10 +205,9 @@
 
 .pickem-game-info {
   color: red;
-  margin-bottom:2%;
   flex-basis: 100%;
   display: flex;
-  font-size: 3vh;
+  font-size: 4vh;
   font-weight: bolder;
   justify-content: center;
   align-items: center;
@@ -220,8 +219,23 @@
   border-color: red;
 }
 
+.game-time {
+  color: white;
+  margin-bottom:2%;
+  flex-basis: 100%;
+  display: flex;
+  font-size: 3vh;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: navy;
+}
+
 .matchup-card {
   display: flexbox;
+  background-color: lightgrey;
 }
 
 .nfl-games-logo {
