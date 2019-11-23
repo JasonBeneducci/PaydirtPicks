@@ -37,7 +37,6 @@ class NflPickem extends React.Component {
             logos: newLogos,
             teamNames: newTeams
         })
-        console.log(this.state)
     }
 
     removeATeam = (image) => {
@@ -98,11 +97,5 @@ const mdp = (dispatch) => {
     }
 }
 
-const msp = (state) => {
-    return {
-        jackpot: state.jackpot,
-    }
-}
-
-export default connect(msp, mdp) (NflPickem)
+export default connect(null, mdp) (NflPickem)
 

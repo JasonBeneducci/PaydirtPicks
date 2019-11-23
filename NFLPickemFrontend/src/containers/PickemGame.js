@@ -47,7 +47,6 @@ class PickemGame extends React.Component {
     }
 
     render() {
-        // console.log("NFL TEAMS", NflTeamInfo[this.props.homeLogo]["img_path"])
         // use NflTeamInfo Game hash to dynamically access values on the keys by team_abbreviation
         return (
             <div className="game-container">
@@ -65,19 +64,5 @@ class PickemGame extends React.Component {
         )
     }
 }
-
-// const msp = (state) => {
-//     return {
-
-//     }
-// }
-
-// const mdp = (dispatch) => {
-//     return {
-
-//     }
-// }
-
-// export default connect(null, mdp) (PickemGame)
 
 export default PickemGame
