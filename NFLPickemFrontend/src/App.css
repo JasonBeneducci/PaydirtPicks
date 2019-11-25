@@ -206,6 +206,7 @@
 .pickem-game-info {
   color: red;
   flex-basis: 100%;
+  flex-wrap: nowrap;
   display: flex;
   font-size: 4vh;
   font-weight: bolder;
@@ -369,10 +370,26 @@
   justify-content: center;
 }
 
-.leaderboards-slate-pick {
+.leaderboards-slate-pick-undecided {
   margin:1%;
   height: 8vh;
   width: auto;
+}
+
+.leaderboards-slate-pick-correct {
+  margin:1%;
+  height: 8vh;
+  width: auto;
+  background-color: lime;
+  border-radius: 10px;
+}
+
+.leaderboards-slate-pick-incorrect {
+  margin:1%;
+  height: 8vh;
+  width: auto;
+  background-color: red;
+  border-radius: 10px;
 }
 
 .leaderboards-player-name {

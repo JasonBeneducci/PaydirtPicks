@@ -4,7 +4,7 @@ const BetTitle = (props) => {
     return (
         <>
             <div className="pickem-game-info">
-                {props.awayName} at {props.homeName}
+                {props.awayName}{" "}({props.homeRecord}) at {props.homeName}{" "}({props.awayRecord})
                 <div className="break"></div>
                 <div className="game-time">
                     {props.time}

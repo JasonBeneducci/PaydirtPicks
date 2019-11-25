@@ -74,11 +74,11 @@ class NflPickem extends React.Component {
     }
 
     render () {
-        console.log(this.state.games)
+        // console.log(this.state.games)
         // take all the games and slice to get the first 7
         let gamesArray = this.state.games.slice(0,7)
             // map over the 7 games in the array and make a pickem game component for each one
-            let gamesToDisplay = gamesArray.map(game => <PickemGame key={game.id} id={game.id-1} makeAPick={this.clickHandler} homeLogo={game.home_team_abbr} awayLogo={game.away_team_abbr} homeName={game.home_team} awayName={game.away_team} time={game.time}/>)
+            let gamesToDisplay = gamesArray.map(game => <PickemGame key={game.id} id={game.id-1} makeAPick={this.clickHandler} homeLogo={game.home_team_abbr} awayLogo={game.away_team_abbr} homeName={game.home_team} awayName={game.away_team} time={game.time} awayRecord={game.away_team_record} homeRecord={game.home_team_record} />)
         
         return (
             <>

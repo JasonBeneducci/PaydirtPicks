@@ -4,10 +4,16 @@ import SearchLeaderboard from '../components/SearchLeaderboard'
 class LeaderboardsContainer extends React.Component {
     state = {
         allSlates: [],
-        filteredSlates: []
+        filteredSlates: [],
+        winners: []
     }
 
     componentDidMount() {
+        this.fetchSlates()
+        this.fetchWinners()
+    }
+
+    fetchSlates = () => {
         fetch('http://localhost:3000/api/v1/slates')
         .then(resp => resp.json())
         .then(data => this.setState({
@@ -15,6 +21,15 @@ class LeaderboardsContainer extends React.Component {
             filteredSlates: data
         }))
     }
+
+    fetchWinners = () => {
+        fetch("http://localhost:3000/api/v1/games/keys")
+        .then(resp => resp.json())
+        .then(winners => this.setState({
+            winners: winners[0]
+        }))
+    }
+
     searchHandler = (term) => {
         let filteredArray = this.state.allSlates.filter(slate => slate.username.includes(term))
         if (term === "") {
@@ -29,7 +44,12 @@ class LeaderboardsContainer extends React.Component {
     }
 
     render () {
-        let slatesArray = this.state.filteredSlates.map(slate => <LeaderboardSlate key={slate.id} slate={slate} />)
+        console.log(this.state.winners)
+        let slatesArray = this.state.filteredSlates.map(slate => <LeaderboardSlate 
+            key={slate.id} 
+            username={slate.username} 
+            slate={[slate.team1, slate.team2, slate.team3, slate.team4, slate.team5, slate.team6, slate.team7]}
+            winners={this.state.winners} />)
         return (
             <div className="leaderboards-container">
                 <SearchLeaderboard searchHandler={this.searchHandler}/>

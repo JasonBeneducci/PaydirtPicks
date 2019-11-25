@@ -1,0 +1,2 @@
+class SlateAnswerKey < ApplicationRecord
+end

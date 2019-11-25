@@ -50,9 +50,8 @@ class PickemGame extends React.Component {
         // use NflTeamInfo Game hash to dynamically access values on the keys by team_abbreviation
         return (
             <div className="game-container">
-                
                 <div>
-                    <BetTitle homeName={this.props.homeName} awayName={this.props.awayName} time={this.props.time} />
+                    <BetTitle homeName={this.props.homeName} awayName={this.props.awayName} time={this.props.time} awayRecord={this.props.awayRecord} homeRecord={this.props.homeRecord}/>
                 </div>
 
                 <div className="matchup-card">

@@ -3,8 +3,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'games', :to => 'games#index'
       get 'games/fetch', :to => 'games#fetch_games'
+      get 'games/fetch_winners', :to => 'slate_answer_keys#fetch_winners'
       get 'slates', :to => 'slates#index'
       post 'slates/new', :to => 'slates#new'
+      get 'games/keys', :to => 'slate_answer_keys#index'
     end
   end
 end

@@ -33,7 +33,7 @@ class Api::V1::GamesController < ApplicationController
             create_games(event)
         end
     end
-    
+
     def create_games(event)
         Game.create!(
             time: event["score"]["event_status_detail"],
@@ -42,6 +42,10 @@ class Api::V1::GamesController < ApplicationController
             away_team_abbr: event["teams_normalized"][1]["abbreviation"],
             home_team: event["teams_normalized"][0]["name"] + " " + event["teams_normalized"][0]["mascot"],
             away_team: event["teams_normalized"][1]["name"] + " " + event["teams_normalized"][1]["mascot"],
+            final_status: event["score"]["event_status"]["winner_away"],
+            final_status_home: event["score"]["event_status"]["winner_home"],
+            away_team_record: event["teams_normalized"][0]["record"],
+            home_team_record: event["teams_normalized"][1]["record"]
         )
     end
 end
