@@ -2,6 +2,7 @@ import React from 'react'
 import LeaderboardSlate from '../components/LeaderboardSlate'
 import SearchLeaderboard from '../components/SearchLeaderboard'
 class LeaderboardsContainer extends React.Component {
+    
     state = {
         allSlates: [],
         filteredSlates: [],
@@ -44,7 +45,6 @@ class LeaderboardsContainer extends React.Component {
     }
 
     render () {
-        console.log(this.state.winners)
         let slatesArray = this.state.filteredSlates.map(slate => <LeaderboardSlate 
             key={slate.id} 
             username={slate.username} 

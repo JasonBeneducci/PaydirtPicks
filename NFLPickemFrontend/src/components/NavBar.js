@@ -1,4 +1,5 @@
 import React from 'react'
+// uses React Router to establish routes in the navbar
 import {
     BrowserRouter as Router,
     Switch,
@@ -28,7 +29,6 @@ const NavBar = () => {
             </Link>
             <Link to='/balance' style={{ textDecoration: 'none', color: 'lime' }}>
                 <div className="navbar-balance-positive">[LoggedinUser's] Balance: $100</div>
-            {/* Write a conditional in here to check if the users balance is greater than 0 it should be className="navbar-balance-positive" */}
             </Link>
         </div>
             <Switch>

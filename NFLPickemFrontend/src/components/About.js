@@ -1,6 +1,7 @@
 import React from 'react'
 
 const About = () => {
+    // component renders the information that needs to be displayed when the user hits the about route
     return (
         <>
             <div className="about-title">About Deep Shot Trivia</div>
