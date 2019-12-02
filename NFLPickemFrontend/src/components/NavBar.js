@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 // uses React Router to establish routes in the navbar
 import {
     BrowserRouter as Router,
@@ -12,7 +13,7 @@ import AccountBalance from './AccountBalance'
 import TopLogo from './TopLogo'
 import LeaderboardsContainer from '../containers/LeaderboardsContainer';
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <>
     <TopLogo />
@@ -28,7 +29,7 @@ const NavBar = () => {
                 <div className="navbar-element">About</div>
             </Link>
             <Link to='/balance' style={{ textDecoration: 'none', color: 'lime' }}>
-                <div className="navbar-balance-positive">[LoggedinUser's] Balance: $100</div>
+                <div className="navbar-balance-positive">User's Balance: ${props.balance} </div>
             </Link>
         </div>
             <Switch>
@@ -50,4 +51,10 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+const msp = (state) => {
+    return {
+        balance: state.balance
+    }
+}
+
+export default connect(msp)(NavBar)
