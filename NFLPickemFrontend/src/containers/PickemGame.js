@@ -1,5 +1,5 @@
 import React from 'react'
-import BetTitle from '../components/BetTitle'
+import BetTitle from '../components/GameInfo'
 import NflTeamInfo from '../components/NflTeamInfo'
 // import {connect} from 'react-redux'
 

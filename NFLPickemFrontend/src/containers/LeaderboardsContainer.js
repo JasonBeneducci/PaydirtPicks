@@ -1,6 +1,7 @@
 import React from 'react'
-import LeaderboardSlate from '../components/LeaderboardSlate'
-import SearchLeaderboard from '../components/SearchLeaderboard'
+import LeaderboardSlate from '../components/SlateOfPicks'
+import SearchLeaderboard from '../components/LeaderboardSearch'
+
 class LeaderboardsContainer extends React.Component {
     
     state = {

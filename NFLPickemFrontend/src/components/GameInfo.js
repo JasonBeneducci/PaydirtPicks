@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BetTitle = (props) => {
+const GameInfo = (props) => {
     // Takes the props passed down and displays the title for every game that a user has to pick. Team Names, Team records and time
     return (
         <>
@@ -15,5 +15,5 @@ const BetTitle = (props) => {
     )
 }
 
-export default BetTitle
+export default GameInfo
 

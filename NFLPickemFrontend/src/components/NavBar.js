@@ -7,10 +7,10 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import NflPickem from './NflPickem'
+import NflPickem from './NflPickemPage'
 import About from './About'
 import AccountBalance from './AccountBalance'
-import TopLogo from './TopLogo'
+import TopLogo from './SiteLogo'
 import LeaderboardsContainer from '../containers/LeaderboardsContainer';
 
 const NavBar = (props) => {

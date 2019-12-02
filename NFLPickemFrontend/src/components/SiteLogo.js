@@ -1,10 +1,10 @@
 import React from 'react'
 
-const TopLogo = () => {
+const SiteLogo = () => {
     return (
         <div className="top-logo">
                 Paydirt Picks
         </div>
     )
 }
-export default TopLogo
+export default SiteLogo

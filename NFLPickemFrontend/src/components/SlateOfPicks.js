@@ -1,7 +1,7 @@
 import React from 'react'
 import SlateImage from './SlateImage'
 
-class LeaderboardSlate extends React.Component {
+class SlateOfPicks extends React.Component {
 
     render () {
         // code is responsible for creating an array of winner abbreviations
@@ -19,6 +19,6 @@ class LeaderboardSlate extends React.Component {
 
     }
 }
-export default LeaderboardSlate
+export default SlateOfPicks
 
 

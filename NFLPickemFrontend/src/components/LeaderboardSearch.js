@@ -1,6 +1,6 @@
 import React from 'react'
 
-class SearchLeaderboard extends React.Component {
+class LeaderboardSearch extends React.Component {
     state = {
         username: ""
     }
@@ -19,4 +19,4 @@ class SearchLeaderboard extends React.Component {
     }
 }
 
-export default SearchLeaderboard
+export default LeaderboardSearch

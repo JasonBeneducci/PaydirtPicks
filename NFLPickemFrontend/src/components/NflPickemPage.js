@@ -3,7 +3,7 @@ import PickemGame from '../containers/PickemGame'
 import TeamInProgress from '../containers/TeamInProgress'
 import {connect} from 'react-redux'
 
-class NflPickem extends React.Component {
+class NflPickemPage extends React.Component {
     state = {
         name: "",
         logos: [null, null, null, null, null, null, null],
@@ -101,5 +101,5 @@ const mdp = (dispatch) => {
     }
 }
 
-export default connect(null, mdp) (NflPickem)
+export default connect(null, mdp) (NflPickemPage)
 
