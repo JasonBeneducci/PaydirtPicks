@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # used namespacing to allow the URL to reflect that it is serving as an api
   namespace :api do
     namespace :v1 do
       get 'games', :to => 'games#index'
